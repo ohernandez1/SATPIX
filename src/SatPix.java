@@ -6,11 +6,13 @@ import java.util.Scanner;
 
 		public static void main(String[] args) throws IOException
 		{
-//			boolean[][] booleanArr = fileToBoolArray("satpix.in");
+			boolean[][] booleanArr = fileToBoolArray("satpix.in");
 			int sizeOfLargestPasture;
 			
 			/* YOUR CODE GOES HERE */
-			
+			int r = booleanArr.length;
+			int c = booleanArr[0].length;
+			sizeOfLargestPasture = recursivelyMeasureAndMarkPasture(r,c,booleanArr);
 			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("satpix.out")));
 			out.println(sizeOfLargestPasture);
 			out.close();
@@ -25,20 +27,30 @@ import java.util.Scanner;
 			boolean [][] farm = new boolean[r][c];
 			for(int a = 0;a<farm.length;a++)
 			{
-				for(int b = 0;b<farm[a].length;b++)
+				String str = scan.next();
+				for(int b = 0;b<str.length();b++)
 				{
-					
+					if(str.substring(b,b+1).equals("*"))
+					{
+						farm[a][b]=true;
+					}
+					else
+					{
+						farm[a][b]=false;
+					}
 				}
 			}
+			return farm;
 		}
 
 		private static int recursivelyMeasureAndMarkPasture(int row, int col, boolean[][] arr)
 		{
 			//This recursive method employs the flood-fill algorithm to
 			//count the size of a single pasture and "mark" it so it is not double-counted
+			
 			return 0;
 		}
 		
 	}
 
-}
+
