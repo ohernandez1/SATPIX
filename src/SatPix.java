@@ -44,12 +44,50 @@ import java.util.Scanner;
 		}
 
 		private static int recursivelyMeasureAndMarkPasture(int row, int col, boolean[][] arr)
-		{
-			//This recursive method employs the flood-fill algorithm to
-			//count the size of a single pasture and "mark" it so it is not double-counted
-			
-			return 0;
-		}
+
+{
+
+if (row < 0) return 0 ;
+
+if (col < 0) return 0;
+
+if (row >= arr.length) return 0;
+
+if (col >= arr[row].length) return 0;
+
+
+
+
+boolean old = arr[row][col];
+
+arr[col][row] = false; 
+
+if (old == arr[row+1][col] )
+
+return 1 + recursivelyMeasureAndMarkPasture( row+1, col ,  arr);
+
+if(old == arr[row-1][col])
+
+return 1 + recursivelyMeasureAndMarkPasture( row - 1,  col,  arr);
+
+if (old == arr[row][col+1])
+
+return 1 + recursivelyMeasureAndMarkPasture( row,  col + 1,  arr);
+
+if (old == arr[row][col-1])
+
+return 1 + recursivelyMeasureAndMarkPasture( row,  col + 1,  arr);
+
+
+
+
+//This recursive method employs the flood-fill algorithm to
+
+//count the size of a single pasture and "mark" it so it is not double-counted
+
+return 0;
+
+}
 		
 	}
 
